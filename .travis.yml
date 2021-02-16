@@ -4,22 +4,22 @@ language: generic
 services:
   - docker
 
-# before_install:
-#   - docker build -t masalehi/react-test -f ./client/Dockerfile.dev ./client
+before_install:
+  - docker build -t masalehi/react-test -f ./client/Dockerfile.dev ./client
 
-# script:
-#   - docker run -e CI=true masalehi/react-test npm test
+script:
+  - docker run -e CI=true masalehi/react-test npm test
 
 after_success:
-  # - docker build -t masalehi/multi-client ./client
-  # - docker build -t masalehi/multi-nginx ./nginx
+  - docker build -t masalehi/multi-client ./client
+  - docker build -t masalehi/multi-nginx ./nginx
   - docker build -t masalehi/multi-server ./server
-  # - docker build -t masalehi/multi-worker ./worker
+  - docker build -t masalehi/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  # - docker push masalehi/multi-client
-  # - docker push masalehi/multi-nginx
+  - docker push masalehi/multi-client
+  - docker push masalehi/multi-nginx
   - docker push masalehi/multi-server
-  # - docker push masalehi/multi-worker
+  - docker push masalehi/multi-worker
 
