@@ -11,10 +11,10 @@ script:
   - docker run -e CI=true masalehi/react-test npm test
 
 after_success:
-  - docker build -t masalehi/multi-client ./client
-  - docker build -t masalehi/multi-nginx ./nginx
+  # - docker build -t masalehi/multi-client ./client
+  # - docker build -t masalehi/multi-nginx ./nginx
   - docker build -t masalehi/multi-server ./server
-  - docker build -t masalehi/multi-worker ./worker
+  # - docker build -t masalehi/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
