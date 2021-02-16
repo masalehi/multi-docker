@@ -18,8 +18,8 @@ after_success:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push masalehi/multi-client
-  - docker push masalehi/multi-nginx
+  # - docker push masalehi/multi-client
+  # - docker push masalehi/multi-nginx
   - docker push masalehi/multi-server
-  - docker push masalehi/multi-worker
+  # - docker push masalehi/multi-worker
 
