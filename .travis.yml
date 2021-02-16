@@ -4,8 +4,8 @@ language: generic
 services:
   - docker
 
-before_install:
-  - docker build -t masalehi/react-test -f ./client/Dockerfile.dev ./client
+# before_install:
+#   - docker build -t masalehi/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true masalehi/react-test npm test
